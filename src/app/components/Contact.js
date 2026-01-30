@@ -31,7 +31,7 @@ export default function Contact() {
         </svg>
       ),
       title: 'Alamat Kantor',
-      info: 'Jl. Konstruksi Utama No. 123, Jakarta Selatan 12345',
+      info: 'Jl. Masjid Baitul Rahman No.22, RT.005/RW.005, Sukarasa, Kec. Tangerang, Kota Tangerang, Banten 15111',
     },
     {
       icon: (
@@ -40,7 +40,7 @@ export default function Contact() {
         </svg>
       ),
       title: 'Telepon',
-      info: '0851 9494 0033',
+      info: '+62 851-7711-1115',
     },
     {
       icon: (
@@ -49,7 +49,7 @@ export default function Contact() {
         </svg>
       ),
       title: 'Email',
-      info: 'info@sinarbenteng.co.id',
+      info: 'sinarbentengperkasajayasakti@gmail.com',
     },
     {
       icon: (
@@ -199,15 +199,28 @@ export default function Contact() {
                <p className="text-slate-400 mb-6 font-light leading-relaxed relative z-10">
                  Kunjungi kantor kami untuk konsultasi tatap muka dengan tim arsitek dan insinyur kami.
                </p>
-               <div className="h-32 bg-[#0f172a] w-full mb-4 flex items-center justify-center border border-white/10">
-                 <span className="text-xs uppercase tracking-widest text-[#e8bf56]">[ MAP PREVIEW ]</span>
+               <div className="h-48 bg-[#0f172a] w-full mb-4 border border-white/10 relative z-10">
+                 <iframe 
+                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d247.91789673299587!2d106.62960284978875!3d-6.172732485610014!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8d2a8ce883b%3A0xf78dd75f677bfb89!2sSinar%20Benteng%20Shop!5e0!3m2!1sen!2sid!4v1769759077722!5m2!1sen!2sid" 
+                   width="100%" 
+                   height="100%" 
+                   style={{ border: 0 }} 
+                   allowFullScreen="" 
+                   loading="lazy" 
+                   referrerPolicy="no-referrer-when-downgrade"
+                 ></iframe>
                </div>
-               <button className="text-[#e8bf56] text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:text-white transition-colors">
+               <a 
+                 href="https://www.google.com/maps/place/Sinar+Benteng+Shop/@-6.1726936,106.6286993,18.28z/data=!4m10!1m2!2m1!1ssinar+benteng+shop!3m6!1s0x2e69f8d2a8ce883b:0xf78dd75f677bfb89!8m2!3d-6.1727637!4d106.6297408"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-[#e8bf56] text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:text-white transition-colors relative z-10"
+               >
                  Buka di Google Maps
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                    <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                  </svg>
-               </button>
+               </a>
             </div>
 
             <div className="space-y-4">
@@ -228,7 +241,7 @@ export default function Contact() {
             </div>
 
             {/* Social Media */}
-            <div className="bg-[#1e293b] rounded-xl p-5 shadow-lg border border-white/5">
+            {/* <div className="bg-[#1e293b] rounded-xl p-5 shadow-lg border border-white/5">
               <h4 className="font-semibold text-white mb-4">Ikuti Kami</h4>
               <div className="flex gap-3">
                 {['facebook', 'instagram', 'linkedin', 'youtube'].map((social) => (
@@ -260,7 +273,7 @@ export default function Contact() {
                   </a>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

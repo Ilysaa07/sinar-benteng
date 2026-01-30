@@ -18,8 +18,8 @@ export const metadata = {
     default: "Sinar Benteng - Konstruksi & Bangunan Profesional",
     template: "%s | Sinar Benteng Construction"
   },
-  description: "Kontraktor umum terpercaya di Jakarta (PT Sinar Benteng) melayani jasa konstruksi gedung, renovasi rumah, infrastruktur jalan, & desain arsitektur presisi.",
-  keywords: ["kontraktor jakarta", "jasa konstruksi bangunan", "renovasi rumah", "kontraktor gedung", "arsitek jakarta", "infrastruktur jalan", "PT Sinar Benteng", "general contractor indonesia"],
+  description: "Kontraktor umum terpercaya di Tangerang & Jakarta (PT Sinar Benteng) melayani jasa konstruksi gedung, renovasi rumah, infrastruktur jalan, & desain arsitektur presisi.",
+  keywords: ["kontraktor tangerang", "jasa konstruksi bangunan", "renovasi rumah", "kontraktor gedung", "arsitek tangerang", "infrastruktur jalan", "PT Sinar Benteng", "general contractor indonesia", "banten"],
   authors: [{ name: "PT Sinar Benteng Perkasa Jaya Sakti" }],
   creator: "Sinar Benteng Team",
   publisher: "PT Sinar Benteng Perkasa Jaya Sakti",
@@ -51,7 +51,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Sinar Benteng - Konstruksi Terpercaya",
-    description: "Jasa konstruksi dan renovasi profesional di Jakarta. Hubungi kami untuk konsultasi proyek.",
+    description: "Jasa konstruksi dan renovasi profesional di Tangerang. Hubungi kami untuk konsultasi proyek.",
     images: ['/hero-bg.webp'],
   },
   robots: {
@@ -75,6 +75,8 @@ export const metadata = {
   },
 };
 
+import FloatingWA from "./components/FloatingWA";
+
 export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -84,22 +86,22 @@ export default function RootLayout({ children }) {
     "url": "https://sinarbenteng.co.id",
     "logo": "https://sinarbenteng.co.id/logo.webp",
     "image": "https://sinarbenteng.co.id/hero-bg.webp",
-    "description": "Kontraktor umum terpercaya di Jakarta dengan spesialisasi konstruksi gedung, renovasi, infrastruktur jalan, dan desain arsitektur modern.",
+    "description": "Kontraktor umum terpercaya di Tangerang dengan spesialisasi konstruksi gedung, renovasi, infrastruktur jalan, dan desain arsitektur modern.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Jl. Konstruksi Utama No. 123",
-      "addressLocality": "Jakarta Selatan",
-      "addressRegion": "DKI Jakarta",
-      "postalCode": "12345",
+      "streetAddress": "Jl. Masjid Baitul Rahman No.22, RT.005/RW.005",
+      "addressLocality": "Sukarasa, Kec. Tangerang",
+      "addressRegion": "Banten",
+      "postalCode": "15111",
       "addressCountry": "ID"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "-6.2088",
-      "longitude": "106.8456"
+      "latitude": "-6.1727637",
+      "longitude": "106.6297408"
     },
     "telephone": "+6285194940033",
-    "email": "info@sinarbenteng.co.id",
+    "email": "sinarbentengperkasajayasakti@gmail.com",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -120,6 +122,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <FloatingWA />
       </body>
     </html>
   );

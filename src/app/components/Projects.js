@@ -3,7 +3,7 @@ export default function Projects() {
     {
       title: 'Gedung Perkantoran Megah',
       category: 'Komersial',
-      location: 'Jakarta Selatan',
+      location: 'Tangerang',
       year: '2024',
     },
     {

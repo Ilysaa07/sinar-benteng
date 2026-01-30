@@ -54,7 +54,7 @@ const Hero = memo(function Hero() {
               {/* CTA Button */}
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="https://wa.me/6285194940033"
+                  href="https://wa.me/6285177111115"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-base px-10 py-4"
@@ -83,13 +83,13 @@ const Hero = memo(function Hero() {
               <div className="relative bg-white/10 backdrop-blur-md border border-white/20 p-8 max-w-sm w-full warning-tape-border">
                 <div className="space-y-6">
                   <div>
-                     <h3 className="text-white/50 text-xs uppercase tracking-widest mb-1">Lokasi Proyek</h3>
+                     <h3 className="text-white/50 text-xs uppercase tracking-widest mb-1">Lokasi Kantor</h3>
                      <p className="text-white font-bold text-xl font-oswald flex items-center gap-3">
                        <svg className="w-6 h-6 text-[#eab308]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                          <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                        </svg>
-                       Jakarta, Indonesia
+                       Tangerang, Indonesia
                      </p>
                   </div>
                   <div className="h-px bg-white/20" />
