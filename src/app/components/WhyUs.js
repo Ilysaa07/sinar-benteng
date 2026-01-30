@@ -57,28 +57,27 @@ export default function WhyUs() {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-[#1a365d] to-[#2d4a7c] relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#2563eb]/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#ea580c]/10 rounded-full blur-3xl" />
-      </div>
-
+    <section className="section-padding bg-blueprint relative overflow-hidden border-t-8 border-[#e8bf56]">
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-[#1a365d]/90" />
+      
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white rounded-full px-4 py-2 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-[#ea580c] rounded-full" />
-            Mengapa Memilih Kami
+        <div className="grid lg:grid-cols-2 gap-12 items-end mb-16 border-b border-white/20 pb-8">
+          <div>
+            <div className="inline-block bg-[#e8bf56] text-white px-3 py-1 font-bold text-xs uppercase tracking-widest mb-4">
+              Komitmen Kualitas
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-none uppercase">
+              Mengapa Memilih <br/>
+              <span className="text-[#e8bf56]">Sinar Benteng</span>?
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Keunggulan
-            <span className="text-[#ea580c]"> Sinar Benteng</span>
-          </h2>
-          <p className="text-white/70 text-lg">
-            Kami berkomitmen memberikan layanan konstruksi terbaik dengan standar 
-            profesionalisme tinggi yang telah dipercaya oleh ratusan klien.
-          </p>
+          <div className="text-right lg:pb-2">
+            <p className="text-slate-300 max-w-md ml-auto font-light leading-relaxed border-l-2 border-[#e8bf56] pl-6 text-left">
+              Standar operasional ketat dan metodologi kerja yang terukur memastikan setiap proyek selesai dengan sempurna.
+            </p>
+          </div>
         </div>
 
         {/* Advantages Grid */}
@@ -86,35 +85,46 @@ export default function WhyUs() {
           {advantages.map((item, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ea580c] to-[#f97316] flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform">
-                {item.icon}
+              {/* Technical Corners */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/50" />
+              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/50" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/50" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/50" />
+
+              <div className="flex items-start gap-4">
+                <div className="mt-1 text-[#e8bf56] group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2 font-oswald tracking-wide uppercase">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                {item.title}
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                {item.desc}
-              </p>
             </div>
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 pt-12 border-t border-white/10">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+        {/* Trust Indicators - Dashboard Style */}
+        <div className="mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 bg-black/20 border border-white/10 backdrop-blur-md">
             {[
-              { label: 'Proyek Selesai', value: '500+' },
-              { label: 'Klien Puas', value: '98%' },
-              { label: 'Penghargaan', value: '15+' },
-              { label: 'Kota di Indonesia', value: '20+' },
+              { label: 'Proyek Selesai', value: '500+', code: 'PRJ-OK' },
+              { label: 'Klien Puas', value: '98%', code: 'SAT-IDX' },
+              { label: 'Penghargaan', value: '15+', code: 'AWD-GET' },
+              { label: 'Kota Jangkauan', value: '25+', code: 'CVR-CTY' },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+              <div key={index} className="p-8 text-center group">
+                <div className="text-xs text-[#e8bf56] font-mono mb-2 opacity-70 group-hover:opacity-100">{stat.code}</div>
+                <div className="text-4xl md:text-5xl font-bold text-white mb-1 font-oswald tracking-tighter">
                   {stat.value}
                 </div>
-                <div className="text-white/60 text-sm">{stat.label}</div>
+                <div className="text-slate-400 text-xs uppercase tracking-widest">{stat.label}</div>
               </div>
             ))}
           </div>

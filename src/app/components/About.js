@@ -1,4 +1,6 @@
-export default function About() {
+import { memo } from 'react';
+
+const About = memo(function About() {
   const stats = [
     { value: '15+', label: 'Tahun Pengalaman' },
     { value: '500+', label: 'Proyek Selesai' },
@@ -36,83 +38,83 @@ export default function About() {
   ];
 
   return (
-    <section id="tentang" className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="tentang" className="py-20 md:py-28 bg-[#172033] relative overflow-hidden">
+      {/* Background Architectural Grid - White/Light for Dark Mode */}
+      <div 
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{ 
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)', 
+          backgroundSize: '32px 32px' 
+        }}
+      />
+      
+      {/* Dark Mode Gradient Spot */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/2" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-[#f59e0b] font-semibold text-sm uppercase tracking-wider mb-4">
-            Tentang Kami
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a1a2e] mb-6 leading-tight">
-            Kami Membangun Lebih dari Sekedar Bangunan
-          </h2>
-          <p className="text-slate-600 text-lg leading-relaxed">
-            Di Sinar Benteng, kami percaya setiap bangunan menceritakan sebuah kisah. 
-            Kisah tentang impian, kerja keras, dan masa depan yang cerah.
-          </p>
-        </div>
-
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left - Visual */}
-          <div className="relative order-2 lg:order-1">
-            {/* Main Image Placeholder */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#f8f9fa] aspect-[4/3]">
-              {/* 
-                GANTI dengan gambar tim/proyek dari Pexels
-                Simpan di /public/about-image.jpg 
-              */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(/about.jpg)' }}
-              >
-              </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+          <div className="order-2 lg:order-1 relative">
+            {/* Main Image Frame */}
+            <div className="relative aspect-[5/3] overflow-hidden rounded-sm shadow-2xl ring-1 ring-white/10">
+               <img
+                  src="/logo.webp"
+                  alt="Tentang Sinar Benteng"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#172033]/80 to-transparent opacity-60" />
             </div>
-
-            {/* Floating Stats Card */}
-            <div className="absolute -bottom-8 -right-4 sm:right-8 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+            
+            {/* Floating 'Stamp' Card - Premium Dark */}
+            <div className="absolute -bottom-8 -right-8 bg-[#0f172a] p-6 shadow-xl border-l-4 border-[#e8bf56] hidden sm:block ring-1 ring-white/10">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-[#f59e0b] rounded-xl flex items-center justify-center">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
+                <div className="text-4xl font-bold font-oswald leading-none text-white">
+                  15<span className="text-[#e8bf56]">+</span>
                 </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#1a1a2e]">100%</p>
-                  <p className="text-slate-500 text-sm">Kepuasan Klien</p>
+                <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">
+                  Tahun<br/>Pengalaman
                 </div>
               </div>
             </div>
-
-            {/* Decorative dot */}
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-[#f59e0b] rounded-full opacity-20" />
           </div>
 
-          {/* Right - Content */}
           <div className="order-1 lg:order-2">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#1a1a2e] mb-6">
-              Bersama Kami, Wujudkan Bangunan Impian Anda
+            <div className="inline-flex items-center gap-2 border-b border-[#e8bf56] pb-1 mb-6">
+               <span className="text-[#e8bf56] font-bold text-sm uppercase tracking-widest font-oswald">
+                Tentang Perusahaan
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 uppercase leading-tight">
+              Membangun <span className="text-[#e8bf56]">Reputasi</span> <br/>
+              & Kepercayaan
+            </h2>
+            <p className="text-slate-300 text-lg leading-relaxed font-light mb-8">
+              Sinar Benteng adalah manifestasi dari visi untuk menciptakan infrastruktur yang tidak hanya fungsional, 
+              tapi juga bertahan melintasi waktu.
+            </p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 uppercase flex items-center gap-3">
+              <span className="w-8 h-1 bg-[#e8bf56]" />
+              Dedikasi Sejak 2010
             </h3>
             
-            <p className="text-slate-600 leading-relaxed mb-6">
-              Sejak 2010, <strong className="text-[#1a1a2e]">Sinar Benteng</strong> telah 
-              menjadi bagian dari perjalanan ratusan klien dalam mewujudkan ruang hidup 
-              dan kerja mereka. Kami tidak hanya membangun struktur — kami membangun 
-              kepercayaan, hubungan, dan masa depan bersama Anda.
+            <p className="text-slate-400 leading-relaxed mb-6 font-medium">
+              Kami mendekati setiap proyek dengan mentalitas "Safety First, Quality Always". 
+              Setiap bata yang diletakkan dan setiap besi yang dipasang diawasi dengan standar ketat.
             </p>
 
-            <p className="text-slate-600 leading-relaxed mb-8">
-              Tim kami terdiri dari para profesional berpengalaman yang memahami bahwa 
-              setiap proyek unik. Kami mendengarkan kebutuhan Anda, memberikan solusi 
-              terbaik, dan memastikan setiap detail dikerjakan dengan sempurna.
+            <p className="text-slate-400 leading-relaxed mb-10 text-sm border-l-2 border-[#e8bf56] pl-4 py-2">
+              Tim insinyur kami tidak hanya bekerja di lapangan, tapi juga memastikan perencanaan 
+              yang matang untuk efisiensi biaya dan ketepatan waktu.
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-6 mb-10 border-t border-b border-white/10 py-6">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center sm:text-left">
-                  <p className="text-2xl sm:text-3xl font-bold text-[#f59e0b]">{stat.value}</p>
-                  <p className="text-slate-500 text-sm">{stat.label}</p>
+                <div key={index} className="">
+                  <p className="text-3xl sm:text-4xl font-bold text-white font-oswald">{stat.value}</p>
+                  <p className="text-slate-500 text-xs uppercase tracking-wider mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -122,16 +124,16 @@ export default function About() {
               {values.map((value, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 p-4 rounded-xl hover:bg-[#f8f9fa] transition-colors"
+                  className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-[#f59e0b]/10 rounded-xl flex items-center justify-center text-[#f59e0b] flex-shrink-0">
+                  <div className="w-8 h-8 flex items-center justify-center border border-slate-700 text-[#e8bf56] group-hover:bg-[#e8bf56] group-hover:text-white transition-colors">
                     {value.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#1a1a2e] mb-1">
+                    <h4 className="font-bold text-white uppercase text-sm mb-1 group-hover:text-[#e8bf56] transition-colors">
                       {value.title}
                     </h4>
-                    <p className="text-slate-500 text-sm">
+                    <p className="text-slate-400 text-xs leading-relaxed">
                       {value.desc}
                     </p>
                   </div>
@@ -141,6 +143,12 @@ export default function About() {
           </div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#e8bf56]" />
+      <div className="absolute bottom-2 left-0 right-0 h-4 warning-tape opacity-50" />
     </section>
   );
-}
+});
+
+About.displayName = 'About';
+
+export default About;

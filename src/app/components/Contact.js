@@ -40,7 +40,7 @@ export default function Contact() {
         </svg>
       ),
       title: 'Telepon',
-      info: '+62 21 1234 5678',
+      info: '0851 9494 0033',
     },
     {
       icon: (
@@ -63,157 +63,179 @@ export default function Contact() {
   ];
 
   return (
-    <section id="kontak" className="section-padding bg-[#f1f5f9]">
+    <section id="kontak" className="section-padding bg-[#172033] border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#2563eb]/10 text-[#2563eb] rounded-full px-4 py-2 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-[#2563eb] rounded-full" />
-            Hubungi Kami
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="max-w-2xl">
+            <span className="block font-bold text-[#e8bf56] text-sm uppercase tracking-widest font-oswald mb-2">
+              Hubungi Kami
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white uppercase leading-none">
+              Mulai Proyek <br/>
+              <span className="text-[#e8bf56] inline-block">Konstruksi Anda</span>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a365d] mb-6">
-            Siap Memulai
-            <span className="text-gradient"> Proyek Anda?</span>
-          </h2>
-          <p className="text-slate-600 text-lg">
-            Konsultasikan kebutuhan konstruksi Anda dengan tim profesional kami. 
-            Kami siap membantu mewujudkan proyek impian Anda.
-          </p>
+          <div className="md:text-right max-w-md">
+             <p className="text-slate-400 font-light border-l-4 border-[#e8bf56] pl-4">
+              Isi formulir di bawah ini untuk mendapatkan estimasi awal dan konsultasi teknis gratis.
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Form */}
+          {/* Form - Styled as Field Report */}
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-[#1a365d] mb-6">
-                Formulir Konsultasi Gratis
+            <div className="bg-[#1e293b] border-2 border-slate-600 p-8 shadow-[8px_8px_0px_#000000] relative">
+              {/* Paper Clip Visual */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-[#e8bf56] rounded-sm shadow-sm flex items-center justify-center">
+                 <span className="text-[#1a1a2e] text-xs font-bold uppercase tracking-widest">Formulir Proyek</span>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-white mb-8 font-oswald uppercase tracking-wide pt-4 border-b border-dashed border-slate-700 pb-4">
+                Data Kebutuhan Klien
               </h3>
               
-              <div className="grid sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Nama Lengkap *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 focus:border-[#e8bf56] focus:ring-0 outline-none transition-all placeholder:text-slate-600 text-sm font-medium text-white"
+                      placeholder="NAMA ANDA"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 focus:border-[#e8bf56] focus:ring-0 outline-none transition-all placeholder:text-slate-600 text-sm font-medium text-white"
+                      placeholder="EMAIL@DOMAIN.COM"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Nomor Telepon *
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 focus:border-[#e8bf56] focus:ring-0 outline-none transition-all placeholder:text-slate-600 text-sm font-medium text-white"
+                      placeholder="+62"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Jenis Proyek
+                    </label>
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 focus:border-[#e8bf56] focus:ring-0 outline-none transition-all text-sm font-medium text-white"
+                    >
+                      <option value="">PILIH JENIS PROYEK</option>
+                      <option value="gedung">KONSTRUKSI GEDUNG</option>
+                      <option value="renovasi">RENOVASI & PERBAIKAN</option>
+                      <option value="infrastruktur">INFRASTRUKTUR</option>
+                      <option value="desain">DESAIN ARSITEKTUR</option>
+                      <option value="lainnya">LAINNYA</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Nama Lengkap *
+                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                    Detail Proyek *
                   </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 outline-none transition-all"
-                    placeholder="Masukkan nama Anda"
+                    rows={5}
+                    className="w-full px-4 py-3 bg-[#0f172a] border border-slate-700 focus:border-[#e8bf56] focus:ring-0 outline-none transition-all resize-none placeholder:text-slate-600 text-sm font-medium text-white"
+                    placeholder="Deskripsikan spesifikasi proyek, lokasi, dan estimasi waktu..."
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 outline-none transition-all"
-                    placeholder="email@domain.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Nomor Telepon *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 outline-none transition-all"
-                    placeholder="+62 xxx xxxx xxxx"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">
-                    Jenis Proyek
-                  </label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 outline-none transition-all bg-white"
+
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    className="btn-primary w-full justify-center py-4"
                   >
-                    <option value="">Pilih jenis proyek</option>
-                    <option value="gedung">Konstruksi Gedung</option>
-                    <option value="renovasi">Renovasi & Perbaikan</option>
-                    <option value="infrastruktur">Infrastruktur</option>
-                    <option value="desain">Desain Arsitektur</option>
-                    <option value="lainnya">Lainnya</option>
-                  </select>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                    Kirim Permintaan
+                  </button>
                 </div>
-              </div>
-
-              <div className="mt-5">
-                <label className="block text-sm font-medium text-slate-700 mb-2">
-                  Detail Proyek *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 outline-none transition-all resize-none"
-                  placeholder="Ceritakan tentang proyek konstruksi yang Anda rencanakan..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-6 w-full bg-gradient-to-r from-[#2563eb] to-[#1a365d] text-white py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-[#2563eb]/30 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-                Kirim Pesan
-              </button>
-            </form>
+              </form>
+            </div>
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
-            {contactInfo.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563eb]/10 to-[#ea580c]/10 flex items-center justify-center text-[#2563eb] flex-shrink-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#1a365d] mb-1">{item.title}</h4>
-                  <p className="text-slate-600">{item.info}</p>
-                </div>
-              </div>
-            ))}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Map Card */}
+            <div className="bg-[#1e293b] p-8 text-white relative overflow-hidden group shadow-lg border border-white/5">
+               <div className="absolute top-0 right-0 w-16 h-16 bg-[#e8bf56] rounded-bl-full opacity-20 group-hover:opacity-100 transition-opacity" />
+               <h4 className="font-oswald text-xl font-bold uppercase mb-4 tracking-wide relative z-10">Kantor Pusat</h4>
+               <p className="text-slate-400 mb-6 font-light leading-relaxed relative z-10">
+                 Kunjungi kantor kami untuk konsultasi tatap muka dengan tim arsitek dan insinyur kami.
+               </p>
+               <div className="h-32 bg-[#0f172a] w-full mb-4 flex items-center justify-center border border-white/10">
+                 <span className="text-xs uppercase tracking-widest text-[#e8bf56]">[ MAP PREVIEW ]</span>
+               </div>
+               <button className="text-[#e8bf56] text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:text-white transition-colors">
+                 Buka di Google Maps
+                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                 </svg>
+               </button>
+            </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-gradient-to-br from-[#1a365d] to-[#2563eb] rounded-xl p-6 text-center">
-              <svg className="w-16 h-16 mx-auto text-white/50 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-              <h4 className="font-semibold text-white mb-2">Lokasi Kami</h4>
-              <p className="text-white/70 text-sm">Kunjungi kantor kami untuk konsultasi langsung</p>
+            <div className="space-y-4">
+               {contactInfo.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-4 border-b border-white/10 hover:bg-[#1e293b] hover:shadow-sm transition-all rounded-sm"
+                >
+                  <div className="text-[#e8bf56]">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-sm uppercase tracking-wide mb-1">{item.title}</h4>
+                    <p className="text-slate-400 font-medium">{item.info}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Social Media */}
-            <div className="bg-white rounded-xl p-5 shadow-sm">
-              <h4 className="font-semibold text-[#1a365d] mb-4">Ikuti Kami</h4>
+            <div className="bg-[#1e293b] rounded-xl p-5 shadow-lg border border-white/5">
+              <h4 className="font-semibold text-white mb-4">Ikuti Kami</h4>
               <div className="flex gap-3">
                 {['facebook', 'instagram', 'linkedin', 'youtube'].map((social) => (
                   <a
                     key={social}
                     href="#"
-                    className="w-10 h-10 rounded-lg bg-[#f1f5f9] flex items-center justify-center text-slate-500 hover:bg-[#2563eb] hover:text-white transition-all"
+                    className="w-10 h-10 rounded-lg bg-[#0f172a] flex items-center justify-center text-slate-400 hover:bg-[#2563eb] hover:text-white transition-all"
                   >
                     {social === 'facebook' && (
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -48,83 +48,80 @@ export default function Projects() {
   };
 
   return (
-    <section id="proyek" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="proyek" className="section-padding bg-[#172033] relative overflow-hidden">
+      {/* Background Texture */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#ea580c]/10 text-[#ea580c] rounded-full px-4 py-2 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-[#ea580c] rounded-full" />
-            Portfolio Proyek
+          <div className="inline-flex items-center gap-2 border border-[#e8bf56] px-4 py-1 mb-6">
+            <span className="text-[#e8bf56] font-bold text-sm uppercase tracking-[0.2em] font-oswald">
+              Portfolio
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a365d] mb-6">
-            Proyek yang Telah
-            <span className="text-gradient"> Kami Kerjakan</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 uppercase leading-none">
+            Rekam Jejak <br/>
+            <span className="text-[#e8bf56]">Konstruksi</span>
           </h2>
-          <p className="text-slate-600 text-lg">
-            Lihat beberapa proyek konstruksi yang telah kami selesaikan dengan 
-            standar kualitas tinggi dan kepuasan klien.
+          <p className="text-slate-300 text-lg font-light">
+            Galeri proyek yang telah kami selesaikan dengan presisi tinggi dan standar keamanan industri.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl card-hover"
+              className="group relative overflow-hidden bg-[#1e293b]/50 backdrop-blur-sm shadow-2xl transition-all duration-300 rounded-sm border border-white/5 hover:border-[#e8bf56]/50"
             >
               {/* Project Image Placeholder */}
-              <div className={`aspect-[4/3] bg-gradient-to-br ${categoryColors[project.category]} flex items-center justify-center`}>
-                <svg className="w-20 h-20 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {project.title}
-                </h3>
-                <div className="flex items-center gap-4 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                  <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    {project.location}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    {project.year}
-                  </span>
+              <div className={`aspect-[4/3] bg-gradient-to-br ${categoryColors[project.category]} relative`}>
+                <div className="absolute inset-0 bg-[#0f172a]/20 mix-blend-multiply" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                  <svg className="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
                 </div>
               </div>
-
-              {/* Category Badge */}
-              <div className="absolute top-4 right-4">
-                <span className={`inline-block bg-gradient-to-r ${categoryColors[project.category]} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg`}>
-                  {project.year}
-                </span>
+              
+              {/* Content Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-[#0f172a]/95 border-t-2 border-[#e8bf56] p-6 transition-transform duration-300 translate-y-[20px] group-hover:translate-y-0">
+                <div className="mb-2">
+                  <span className="bg-[#e8bf56] text-white text-[10px] font-bold px-2 py-0.5 uppercase tracking-wide rounded-sm">
+                    {project.category}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 font-oswald uppercase tracking-wide">
+                  {project.title}
+                </h3>
+                <div className="grid grid-cols-2 gap-4 text-slate-400 text-xs uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#e8bf56]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {project.location}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#e8bf56]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {project.year}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
         {/* View All */}
-        <div className="text-center mt-12">
-          <button className="inline-flex items-center gap-2 border-2 border-[#1a365d] text-[#1a365d] px-8 py-4 rounded-full font-semibold hover:bg-[#1a365d] hover:text-white transition-all duration-300">
+        <div className="text-center mt-16">
+          <button className="px-8 py-3 border-2 border-white text-white font-bold uppercase tracking-widest hover:bg-white hover:text-[#0f172a] transition-all duration-300">
             Lihat Semua Proyek
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </button>
         </div>
       </div>

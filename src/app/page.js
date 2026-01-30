@@ -1,11 +1,14 @@
+import dynamic from 'next/dynamic';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import WhyUs from './components/WhyUs';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+// Lazy load below-the-fold components
+const About = dynamic(() => import('./components/About'));
+const Services = dynamic(() => import('./components/Services'));
+const Projects = dynamic(() => import('./components/Projects'));
+const WhyUs = dynamic(() => import('./components/WhyUs'));
+const Contact = dynamic(() => import('./components/Contact'));
+const Footer = dynamic(() => import('./components/Footer'));
 
 export default function Home() {
   return (
@@ -15,11 +18,11 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
-        {/* <Projects />
-        <WhyUs />
-        <Contact /> */}
+        <Projects />
+        {/* <WhyUs /> */}
+        <Contact />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
