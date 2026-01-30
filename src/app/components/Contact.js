@@ -118,7 +118,6 @@ export default function Contact() {
             <div className="bg-[#1e293b] border-2 border-slate-600 p-8 shadow-[8px_8px_0px_#000000] relative">
               {/* Paper Clip Visual */}
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-[#e8bf56] rounded-sm shadow-sm flex items-center justify-center">
-                 <span className="text-[#1a1a2e] text-xs font-bold uppercase tracking-widest">Formulir Proyek</span>
               </div>
               
               <h3 className="text-2xl font-bold text-white mb-8 font-oswald uppercase tracking-wide pt-4 border-b border-dashed border-slate-700 pb-4">
