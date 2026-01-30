@@ -13,7 +13,7 @@ const oswald = Oswald({
 
 
 export const metadata = {
-  metadataBase: new URL('https://sinarbenteng.co.id'), // Replace with actual domain
+  metadataBase: new URL('https://sinarbenteng.com'), // Replace with actual domain
   title: {
     default: "Sinar Benteng - Konstruksi & Bangunan Profesional",
     template: "%s | Sinar Benteng Construction"
@@ -35,7 +35,7 @@ export const metadata = {
   openGraph: {
     title: "Sinar Benteng - Konstruksi & Bangunan Profesional",
     description: "Mitra konstruksi terpercaya untuk membangun masa depan dengan kekuatan dan keandalan. Ahli dalam pembangunan gedung, jalan, dan renovasi.",
-    url: 'https://sinarbenteng.co.id',
+    url: 'https://sinarbenteng.com',
     siteName: 'Sinar Benteng',
     images: [
       {
@@ -83,9 +83,9 @@ export default function RootLayout({ children }) {
     "@type": "GeneralContractor",
     "name": "PT Sinar Benteng Perkasa Jaya Sakti",
     "alternateName": "Sinar Benteng",
-    "url": "https://sinarbenteng.co.id",
-    "logo": "https://sinarbenteng.co.id/logo.webp",
-    "image": "https://sinarbenteng.co.id/hero-bg.webp",
+    "url": "https://sinarbenteng.com",
+    "logo": "https://sinarbenteng.com/logo.webp",
+    "image": "https://sinarbenteng.com/hero-bg.webp",
     "description": "Kontraktor umum terpercaya di Tangerang dengan spesialisasi konstruksi gedung, renovasi, infrastruktur jalan, dan desain arsitektur modern.",
     "address": {
       "@type": "PostalAddress",

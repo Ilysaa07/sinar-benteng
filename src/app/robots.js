@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://sinarbenteng.co.id/sitemap.xml',
+    sitemap: 'https://sinarbenteng.com/sitemap.xml',
   }
 }
