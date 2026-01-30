@@ -11,15 +11,44 @@ export default function Contact() {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // 1. Send Email via FormSubmit
+      await fetch("https://formsubmit.co/ajax/sinarbentengperkasajayasakti@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `New Project Inquiry: ${formData.subject}`,
+          _template: 'table'
+        })
+      });
+
+      // 2. Open WhatsApp
+      const waMessage = `Halo Sinar Benteng, saya ingin konsultasi proyek.\n\nNama: ${formData.name}\nEmail: ${formData.email}\nNo HP: ${formData.phone}\nJenis Proyek: ${formData.subject}\n\nPesan:\n${formData.message}`;
+      const waUrl = `https://wa.me/6285177111115?text=${encodeURIComponent(waMessage)}`;
+      
+      window.open(waUrl, '_blank');
+
+      alert('Terima kasih! Pesan Anda telah terkirim via Email & WhatsApp.');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      alert('Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi atau hubungi via WhatsApp langsung.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -178,12 +207,13 @@ export default function Contact() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="btn-primary w-full justify-center py-4"
+                    className={`btn-primary w-full justify-center py-4 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    disabled={isSubmitting}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                     </svg>
-                    Kirim Permintaan
+                    {isSubmitting ? 'Mengirim...' : 'Kirim Permintaan'}
                   </button>
                 </div>
               </form>
