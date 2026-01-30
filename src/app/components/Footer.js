@@ -30,13 +30,21 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#e8bf56] flex items-center justify-center font-bold text-xl text-[#0f172a] clip-polygon">
-                SB
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 relative overflow-hidden bg-white">
+                 <img 
+                   src="/logo.webp" 
+                   alt="Sinar Benteng Logo" 
+                   className="w-full h-full object-cover"
+                 />
               </div>
-              <div>
-                <h3 className="text-xl font-bold font-oswald uppercase tracking-wider">Sinar Benteng</h3>
-                <p className="text-slate-400 text-xs font-mono uppercase tracking-widest">Est. 2010</p>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl uppercase tracking-tighter leading-none font-oswald text-white">
+                  Sinar<span className="text-[#e8bf56]">Benteng</span>
+                </span>
+                <span className="text-[0.6rem] uppercase tracking-[0.2em] font-bold border-t border-[#e8bf56] mt-0.5 pt-0.5 w-full text-justify flex justify-between text-slate-400">
+                  <span>K</span><span>o</span><span>n</span><span>s</span><span>t</span><span>r</span><span>u</span><span>k</span><span>s</span><span>i</span>
+                </span>
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed mb-6 text-sm font-light">
