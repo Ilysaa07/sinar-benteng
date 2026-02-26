@@ -9,10 +9,38 @@ const Projects = dynamic(() => import('./components/Projects'));
 const WhyUs = dynamic(() => import('./components/WhyUs'));
 const Contact = dynamic(() => import('./components/Contact'));
 const Footer = dynamic(() => import('./components/Footer'));
+const AreaLayanan = dynamic(() => import('./components/AreaLayanan'));
 
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Berapa biaya jasa bangun rumah di Banten & Tangerang?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Biaya jasa bangun rumah di Banten & Tangerang bervariasi mulai dari Rp 3.500.000 per meter persegi, tergantung kerumitan desain dan kualitas material."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah Sinar Benteng memberikan garansi hasil konstruksi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, kami memberikan jaminan garansi retensi dan pemeliharaan untuk memastikan bangunan aman dan sesuai ekspektasi jangka panjang."
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
       <main>
         <Hero />
@@ -20,6 +48,7 @@ export default function Home() {
         <Services />
         <Projects />
         {/* <WhyUs /> */}
+        <AreaLayanan />
         <Contact />
       </main>
       <Footer />

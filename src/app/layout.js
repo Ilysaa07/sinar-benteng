@@ -110,8 +110,13 @@ export default function RootLayout({ children }) {
       "opens": "08:00",
       "closes": "17:00"
     },
-    "priceRange": "$$",
-    "areaServed": "Indonesia"
+    "priceRange": "$$$$",
+    "areaServed": [
+      { "@type": "City", "name": "Kota Tangerang" },
+      { "@type": "City", "name": "Tangerang Selatan" },
+      { "@type": "City", "name": "Kabupaten Tangerang" },
+      { "@type": "State", "name": "Banten" }
+    ]
   };
 
   return (
