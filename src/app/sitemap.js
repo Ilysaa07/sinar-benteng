@@ -1,6 +1,7 @@
 // Helper to get projects data - normally this would come from a CMS or DB
 const projects = [
   { slug: 'gedung-perkantoran-megah', date: '2024-03-01' },
+  { slug: 'pabrik-baja-cikupa', date: '2025-02-10' },
   { slug: 'perumahan-elite-cluster', date: '2023-11-15' },
   { slug: 'jembatan-penghubung', date: '2023-08-10' },
   { slug: 'renovasi-hotel-berbintang', date: '2024-01-20' },
